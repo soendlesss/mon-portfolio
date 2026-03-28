@@ -1,0 +1,77 @@
+<template>
+    <div>
+        <section id="presentation">
+            <h1>Ethan LANGLOIS</h1>
+            <p>Je suis un étudiant en développement web au Centre Européen de Formation. J'ai d'abord effectué une mise à niveau en Arts Appliqués, pour ensuite faire une année de graphisme. J'ai enchainé sur un diplôme en web design intitulé "Graphiste multimédias". Ayant touché du doigt le développement web lors de ce diplôme j'ai voulu approfondir cette curiosité grandissante en passant un diplôme de développeur web. Mon objectif à l'obtention de ce diplôme est de trouver un poste de développeur web junior en Île-de-France.</p>
+        </section>
+
+        <section id="creations">
+            <CarteProjet v-for="projet in projets"
+            :key="projet.titre"
+            :titre="projet.titre"
+            :technologie="projet.technologie"
+            :annee="projet.annee"
+            :description="projet.description"
+            :lien="projet.lien"
+            :type="projet.type"
+            />
+
+        </section>
+
+        <section id="contact">
+        </section>
+    </div>
+</template>
+
+<script setup>
+
+import CarteProjet from '@/components/CarteProjet.vue';
+import { ref } from 'vue';
+
+const projets = ref([
+    {
+        titre: "Créer un CV en ligne",
+        technologie: "HTML, CSS",
+        annee: 2024,
+        description: "Conception d'une page CV en HTML5 et CSS3 avec VS Code.",
+        lien: "https://github.com/soendlesss/creer-un-cv-en-ligne-devoir-el",
+        type: "github"
+    },
+    {
+        titre: "Dynamiser un espace commentaire",
+        technologie: "HTML, JavaScript",
+        annee: 2025,
+        description: "Intégration de scripts événementiels pour dynamiser un espace commentaire sans rechargement de page.",
+        lien: "https://github.com/soendlesss/Dynamiser-avec-JS",
+        type: "github"
+    },
+    {
+        titre: "Arcane Quiz",
+        technologie: "HTML, CSS, JavaScript",
+        annee: 2025,
+        description: "Création d'un quiz interactif autour de la série Arcane.",
+        lien: "https://github.com/soendlesss/arcane_quiz",
+        type: "github"
+    },
+    {
+        titre: "Site web TIM Essonne",
+        technologie: "CMS Wix",
+        annee: 2024,
+        description: "Site du tournoi international U14 en lien avec le circuit ITF Tennis Europe Junior Tour.",
+        lien: "https://www.tim91.com/",
+        type: "site"
+    },
+    {
+        titre: "Site web Comité Essonne Tennis",
+        technologie: "CMS Prismic",
+        annee: 2025,
+        description: "Refonte totale du site officiel du Comité Essonne de Tennis, migration de WordPress vers Prismic.",
+        lien: "https://essonne.fft.fr/",
+        type: "site"
+    }
+]);
+
+</script>
+
+<style>
+</style>
