@@ -14,8 +14,19 @@
             :description="projet.description"
             :lien="projet.lien"
             :type="projet.type"
+            @selectionner="ouvrirModale"
             />
 
+            <ModaleProjet
+            :visible="modaleVisible"
+            :titre="projetSelectionne?.titre"
+            :technologie="projetSelectionne?.technologie"
+            :annee="projetSelectionne?.annee"
+            :description="projetSelectionne?.description"
+            :lien="projetSelectionne?.lien"
+            :type="projetSelectionne?.type"
+            @fermer="fermerModale"
+            />
         </section>
 
         <section id="contact">
@@ -27,6 +38,7 @@
 
 import CarteProjet from '@/components/CarteProjet.vue';
 import { ref } from 'vue';
+import ModaleProjet from '@/components/ModaleProjet.vue';
 
 const projets = ref([
     {
@@ -70,6 +82,17 @@ const projets = ref([
         type: "site"
     }
 ]);
+
+const projetSelectionne = ref(null);
+
+const modaleVisible = ref(false);
+
+const ouvrirModale = (projet) => { 
+    projetSelectionne.value = projet; 
+    modaleVisible.value = true 
+};
+
+const fermerModale = () => { modaleVisible.value = false; };
 
 </script>
 

@@ -8,15 +8,17 @@
 
 <script setup>
 
-defineProps({
+const props = defineProps({
     titre: String,
     technologie: String,
     annee: Number,
     description: String,
     lien: String,
     type: String,
-})
+});
 
-const seeMore = () => {};
+const emit = defineEmits(["selectionner"]);
+
+const seeMore = () => { emit("selectionner", props); };
 
 </script>
