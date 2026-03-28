@@ -30,6 +30,12 @@
         </section>
 
         <section id="contact">
+            <h2>Contact</h2>
+            <input type="text" v-model="nom" placeholder="Nom">
+            <input type="text" v-model="objet" placeholder="Objet">
+            <textarea v-model="message" placeholder="Message"></textarea>
+            <button @click="envoyerMessage">Envoyer</button>
+
         </section>
     </div>
 </template>
@@ -40,6 +46,8 @@ import CarteProjet from '@/components/CarteProjet.vue';
 import { ref } from 'vue';
 import ModaleProjet from '@/components/ModaleProjet.vue';
 
+
+// CREATIONS - carte projet
 const projets = ref([
     {
         titre: "Créer un CV en ligne",
@@ -83,6 +91,8 @@ const projets = ref([
     }
 ]);
 
+
+// CREATIONS - modale projet
 const projetSelectionne = ref(null);
 
 const modaleVisible = ref(false);
@@ -93,6 +103,20 @@ const ouvrirModale = (projet) => {
 };
 
 const fermerModale = () => { modaleVisible.value = false; };
+
+
+// CONTACT - formulaire
+const nom = ref("");
+const objet = ref("");
+const message = ref("");
+
+const envoyerMessage = () => { 
+    console.log(nom.value, objet.value, message.value);
+    // vider les champs
+    nom.value= "";
+    objet.value= "";
+    message.value= "";
+};
 
 </script>
 
