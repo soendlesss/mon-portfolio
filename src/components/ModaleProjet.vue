@@ -1,14 +1,22 @@
 <template>
-    <div v-if="visible">
-        <h2> {{ titre }} </h2>
-        <p> {{ technologie }} - {{ annee }} </p>
-        <p> {{ description }} </p>
-        <button @click="fermer">✕</button>
+    <!-- Clic sur le fond = fermer -->
+    <div v-if="visible" class="overlay" @click="fermer">
+        <!-- Clic sur la boîte = ne RIEN faire -->
+        <div class="boite" @click.stop>
+            <h2> {{ titre }} </h2>
+            <p> {{ technologie }} </p>
+            <p> Année : {{ annee }} </p>
+            <p> {{ description }} </p>
+            <a :href="lien" target="_blank" v-if="type === 'github'">Voir sur GitHub</a>
+            <a :href="lien" target="_blank" v-if="type === 'site'">Visiter le site</a>
+            <button @click="fermer">✕</button>
+        </div>
     </div>
 </template>
 
 <script setup>
 
+// Déclare les props reçues depuis le composant parent
 defineProps({
     titre: String,
     technologie: String,
@@ -19,8 +27,10 @@ defineProps({
     visible: Boolean
 });
 
+// Déclare les emits envoyés vers le composant parent 
 const emit = defineEmits(["fermer"]);
 
+// Fonction qui émet l'événement "fermer" vers le composant parent
 const fermer = () => { emit("fermer"); };
 
 </script>
