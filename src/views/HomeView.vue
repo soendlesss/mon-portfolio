@@ -59,6 +59,14 @@ const projets = ref([
         type: "github"
     },
     {
+        titre: "Cahier des charges – La Socketterie",
+        technologie: "Canva",
+        annee: 2024,
+        description: "Rédaction d'un cahier des charges complet pour La Socketterie, e-commerce de chaussettes dépareillées faites main.",
+        lien: "/docs/cahier-des-charges-la-socketterie.pdf",
+        type: "pdf"
+    },
+    {
         titre: "Dynamiser un espace commentaire",
         technologie: "HTML, JavaScript",
         annee: 2025,

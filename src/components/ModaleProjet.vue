@@ -9,6 +9,7 @@
             <p> {{ description }} </p>
             <a :href="lien" target="_blank" v-if="type === 'github'">Voir sur GitHub</a>
             <a :href="lien" target="_blank" v-if="type === 'site'">Visiter le site</a>
+            <a :href="lien" target="_blank" v-if="type === 'pdf'">Voir le pdf</a>
             <button @click="fermer">✕</button>
         </div>
     </div>
