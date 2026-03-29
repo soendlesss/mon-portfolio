@@ -45,6 +45,7 @@
 import CarteProjet from '@/components/CarteProjet.vue';
 import { ref } from 'vue';
 import ModaleProjet from '@/components/ModaleProjet.vue';
+import emailjs from '@emailjs/browser';
 
 
 // CREATIONS - carte projet
@@ -110,15 +111,28 @@ const nom = ref("");
 const objet = ref("");
 const message = ref("");
 
-const envoyerMessage = () => { 
-    console.log(nom.value, objet.value, message.value);
-    // vider les champs
-    nom.value= "";
-    objet.value= "";
-    message.value= "";
+const envoyerMessage = async () => { 
+    try {
+        const reponse = await emailjs.send(
+            import.meta.env.VITE_EMAILJS_SERVICE_ID,
+            import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+            { nom: nom.value, objet: objet.value, message: message.value },
+            import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        );
+        console.log("Succés !", reponse);
+        alert("Envoyé avec succès !");
+        // vider les champs
+        nom.value= "";
+        objet.value= "";
+        message.value= "";
+    } catch (erreur) {
+        console.log("Ça a échoué :", erreur);
+        alert("L'envoi a echoué.");
+    }
 };
 
 </script>
 
 <style>
 </style>
+
