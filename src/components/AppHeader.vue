@@ -1,11 +1,12 @@
 <template>
 
     <header>
-        <a href="#presentation">
+        <a href="/">
             <img src="@/assets/img/sean.jpg" alt="Logo Ethan LANGLOIS">
         </a>
 
         <nav>
+            <!--Liens d'ancrage de chaque section-->
             <a href="#presentation">Présentation</a>
             <a href="#creations">Créations</a>
             <a href="#contact">Contact</a>

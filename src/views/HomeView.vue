@@ -1,10 +1,12 @@
 <template>
     <div>
+        <!--Présente qui je suis-->
         <section id="presentation">
             <h1>Ethan LANGLOIS</h1>
             <p>Je suis un étudiant en développement web au Centre Européen de Formation. J'ai d'abord effectué une mise à niveau en Arts Appliqués, pour ensuite faire une année de graphisme. J'ai enchainé sur un diplôme en web design intitulé "Graphiste multimédias". Ayant touché du doigt le développement web lors de ce diplôme j'ai voulu approfondir cette curiosité grandissante en passant un diplôme de développeur web. Mon objectif à l'obtention de ce diplôme est de trouver un poste de développeur web junior en Île-de-France.</p>
         </section>
 
+        <!--Affiche toutes les cartes projets, la modale s'ouvre quand on clique sur une carte-->
         <section id="creations">
             <CarteProjet v-for="projet in projets"
             :key="projet.titre"
@@ -29,6 +31,7 @@
             />
         </section>
 
+        <!--Formulaire pour me contacter avec EmailJS-->
         <section id="contact">
             <h2>Contact</h2>
             <input type="text" v-model="nom" placeholder="Nom">
@@ -42,13 +45,18 @@
 
 <script setup>
 
+// Composants enfants
 import CarteProjet from '@/components/CarteProjet.vue';
-import { ref } from 'vue';
 import ModaleProjet from '@/components/ModaleProjet.vue';
+
+// Fonction réactive de Vue pour mettre à jour l'affichage automatiquement
+import { ref } from 'vue';
+
+// Librairie pour envoyer des emails sans serveur backend
 import emailjs from '@emailjs/browser';
 
 
-// CREATIONS - carte projet
+// CREATIONS - CARTE PROJET
 const projets = ref([
     {
         titre: "Créer un CV en ligne",
@@ -101,24 +109,32 @@ const projets = ref([
 ]);
 
 
-// CREATIONS - modale projet
+// CREATIONS - MODALE PROJET
+
+// Projet actuellement sélectionné, null si aucun
 const projetSelectionne = ref(null);
 
+// Contrôle l'affichage de la modale (true = visible, false = cachée)
 const modaleVisible = ref(false);
 
+// Ouvre la modale et charge les données du projet cliqué
 const ouvrirModale = (projet) => { 
     projetSelectionne.value = projet; 
     modaleVisible.value = true 
 };
 
+// Ferme la modale en remettant modaleVisible à false
 const fermerModale = () => { modaleVisible.value = false; };
 
 
-// CONTACT - formulaire
+// CONTACT - FORMULAIRE
+
+// Champs du formulaire de contact
 const nom = ref("");
 const objet = ref("");
 const message = ref("");
 
+// Envoie le formulaire via emailjs et vide les champs en cas de succès
 const envoyerMessage = async () => { 
     try {
         const reponse = await emailjs.send(

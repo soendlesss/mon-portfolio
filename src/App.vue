@@ -1,7 +1,8 @@
 <template>
   <div>
+    <!--Structure de mon site-->
     <AppHeader />
-    <RouterView />
+    <RouterView /> <!-- Affiche la vue correspondant à l'URL actuelle-->
     <AppFooter />
   </div>
 </template>

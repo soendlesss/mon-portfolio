@@ -28,7 +28,7 @@ defineProps({
     visible: Boolean
 });
 
-// Déclare les emits envoyés vers le composant parent 
+// Déclare l'événement "fermer" émis vers HomeView.vue au clic sur "✕"
 const emit = defineEmits(["fermer"]);
 
 // Fonction qui émet l'événement "fermer" vers le composant parent
