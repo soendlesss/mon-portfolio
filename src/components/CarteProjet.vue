@@ -62,12 +62,18 @@ const seeMore = () => { emit("selectionner", props); };
 .carte button {
     background-color: var(--couleur-contraste);
     color: var(--couleur-texte);
+    font-family: inherit;
     border: none;
     padding: 4px 10px;
     margin: 0 10px 10px auto;
     border-radius: 4px;
     font-size: 0.8rem;
+    font-weight: 400;
     cursor: pointer;
+}
+
+.carte button:hover {
+    transform: scale(1.05);
 }
 
 </style>

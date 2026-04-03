@@ -152,6 +152,10 @@ header nav a.actif {
     text-decoration: none;
 }
 
+.btn-principal:hover, .btn-secondaire:hover {
+    transform: scale(1.05);
+}
+
 .presentation-photo {
     flex-shrink: 0;
 }
