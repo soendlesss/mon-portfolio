@@ -68,4 +68,8 @@
     margin-top: 40px;
 }
 
+.btn-accueil:hover {
+    transform: scale(1.05);
+}
+
 </style>
