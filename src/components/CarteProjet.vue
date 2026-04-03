@@ -36,6 +36,8 @@ const seeMore = () => { emit("selectionner", props); };
     border-radius: var(--rayon-bordure);
     overflow: hidden;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
 }
 
 .carte:hover {
@@ -54,6 +56,7 @@ const seeMore = () => { emit("selectionner", props); };
     font-weight: 700;
     text-transform: uppercase;
     padding: 10px 10px 5px 10px;
+    flex: 1;
 }
 
 .carte button {
@@ -61,7 +64,7 @@ const seeMore = () => { emit("selectionner", props); };
     color: var(--couleur-texte);
     border: none;
     padding: 4px 10px;
-    margin: 0 10px 10px 380px;
+    margin: 0 10px 10px auto;
     border-radius: 4px;
     font-size: 0.8rem;
     cursor: pointer;
