@@ -291,6 +291,10 @@ header nav a.actif {
     cursor: pointer;
 }
 
+.btn-envoyer:hover {
+    transform: scale(1.05);
+}
+
 /* =============================================
    FOOTER
    ============================================= */
