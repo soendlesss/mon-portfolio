@@ -1,46 +1,103 @@
 <template>
     <div>
-        <!--Présente qui je suis-->
+        <!-- Section héro : présentation -->
         <section id="presentation">
-            <h1>Ethan LANGLOIS</h1>
-            <p>Je suis un étudiant en développement web au Centre Européen de Formation. J'ai d'abord effectué une mise à niveau en Arts Appliqués, pour ensuite faire une année de graphisme. J'ai enchainé sur un diplôme en web design intitulé "Graphiste multimédias". Ayant touché du doigt le développement web lors de ce diplôme j'ai voulu approfondir cette curiosité grandissante en passant un diplôme de développeur web. Mon objectif à l'obtention de ce diplôme est de trouver un poste de développeur web junior en Île-de-France.</p>
+            <div class="presentation-texte">
+                <p class="bonjour">Bonjour je suis Ethan !</p>
+                <h1>Développeur <br><span>WEB</span> Junior</h1>
+                <p>Je suis un étudiant en développement web au Centre Européen de Formation.<br>Bienvenu sur mon Portfolio !</p>
+                <div class="presentation-boutons">
+                    <a href="#projets" class="btn-principal">Projets</a>
+                    <a href="/404" class="btn-secondaire">404</a>
+                </div>
+            </div>
+            <div class="presentation-photo">
+                <img src="@/assets/img/sean.jpg" alt="Photo Ethan LANGLOIS">
+            </div>
         </section>
 
-        <!--Affiche toutes les cartes projets, la modale s'ouvre quand on clique sur une carte-->
-        <section id="creations">
-            <CarteProjet v-for="projet in projets"
-            :key="projet.titre"
-            :titre="projet.titre"
-            :technologie="projet.technologie"
-            :annee="projet.annee"
-            :description="projet.description"
-            :lien="projet.lien"
-            :type="projet.type"
-            :image="projet.image"
-            @selectionner="ouvrirModale"
-            />
+        <!-- Séparateur orange -->
+        <div class="separateur"></div>
+
+        <!-- Section projets -->
+        <section id="projets">
+            <div class="section-titre">
+                <h2>Pr<span>o</span>jets</h2>
+            </div>
+            <div class="section-ligne"></div>
+
+            <div class="grille-projets">
+                <CarteProjet
+                    v-for="projet in projets"
+                    :key="projet.titre"
+                    :titre="projet.titre"
+                    :technologie="projet.technologie"
+                    :annee="projet.annee"
+                    :description="projet.description"
+                    :lien="projet.lien"
+                    :type="projet.type"
+                    :image="projet.image"
+                    @selectionner="ouvrirModale"
+                />
+            </div>
 
             <ModaleProjet
-            :visible="modaleVisible"
-            :titre="projetSelectionne?.titre"
-            :technologie="projetSelectionne?.technologie"
-            :annee="projetSelectionne?.annee"
-            :description="projetSelectionne?.description"
-            :lien="projetSelectionne?.lien"
-            :type="projetSelectionne?.type"
-            :image="projetSelectionne?.image"
-            @fermer="fermerModale"
+                :visible="modaleVisible"
+                :titre="projetSelectionne?.titre"
+                :technologie="projetSelectionne?.technologie"
+                :annee="projetSelectionne?.annee"
+                :description="projetSelectionne?.description"
+                :lien="projetSelectionne?.lien"
+                :type="projetSelectionne?.type"
+                :image="projetSelectionne?.image"
+                @fermer="fermerModale"
             />
         </section>
 
-        <!--Formulaire pour me contacter avec EmailJS-->
-        <section id="contact">
-            <h2>Contact</h2>
-            <input type="text" v-model="nom" placeholder="Nom">
-            <input type="text" v-model="objet" placeholder="Objet">
-            <textarea v-model="message" placeholder="Message"></textarea>
-            <button @click="envoyerMessage">Envoyer</button>
+        <!-- Séparateur orange -->
+        <div class="separateur"></div>
 
+        <!-- Section à propos -->
+        <section id="apropos">
+            <div class="section-titre">
+                <h2>À Pr<span>o</span>pos</h2>
+            </div>
+            <div class="section-ligne"></div>
+
+            <p>Je suis un étudiant en développement web au Centre Européen de Formation. J'ai d'abord effectué une mise à niveau en Arts Appliqués, pour ensuite faire une année de graphisme.</p>
+            <p>J'ai enchainé sur un diplôme en web design intitulé "Graphiste multimédias".</p>
+            <p>Ayant touché du doigt le développement web lors de ce diplôme j'ai voulu approfondir cette curiosité grandissante en passant un diplôme de développeur web.</p>
+            <p>Mon objectif à l'obtention de ce diplôme est de trouver un poste de développeur web junior en Île-de-France.</p>
+            <br>
+            <p><a href="#">Liste de compétences :</a></p>
+            <p class="competences">HTML • CSS • JavaScript • Vue.JS • GitHub</p>
+        </section>
+
+        <!-- Séparateur orange -->
+        <div class="separateur"></div>
+
+        <!-- Section contact -->
+        <section id="contact">
+            <div class="section-titre">
+                <h2>C<span>o</span>ntact</h2>
+            </div>
+            <div class="section-ligne"></div>
+
+            <div class="formulaire-contact">
+                <div>
+                    <label for="nom">Nom / Prénom :</label>
+                    <input id="nom" type="text" v-model="nom" placeholder="">
+                </div>
+                <div>
+                    <label for="objet">Objet :</label>
+                    <input id="objet" type="text" v-model="objet" placeholder="">
+                </div>
+                <div>
+                    <label for="message">Message :</label>
+                    <textarea id="message" v-model="message" placeholder=""></textarea>
+                </div>
+                <button class="btn-envoyer" @click="envoyerMessage">Soumettre</button>
+            </div>
         </section>
     </div>
 </template>
@@ -70,7 +127,7 @@ const projets = ref([
         image: "/img/cv-en-ligne.png"
     },
     {
-        titre: "Cahier des charges – La Socketterie",
+        titre: "Cahier des charges",
         technologie: "Canva",
         annee: 2024,
         description: "Rédaction d'un cahier des charges complet pour La Socketterie, e-commerce de chaussettes dépareillées faites main.",
@@ -88,7 +145,7 @@ const projets = ref([
         image: "/img/dynamiser-espace-commentaire.png"
     },
     {
-        titre: "Arcane Quiz",
+        titre: "Quiz Arcane",
         technologie: "HTML, CSS, JavaScript",
         annee: 2025,
         description: "Création d'un quiz interactif autour de la série Arcane.",
@@ -126,9 +183,9 @@ const projetSelectionne = ref(null);
 const modaleVisible = ref(false);
 
 // Ouvre la modale et charge les données du projet cliqué
-const ouvrirModale = (projet) => { 
-    projetSelectionne.value = projet; 
-    modaleVisible.value = true 
+const ouvrirModale = (projet) => {
+    projetSelectionne.value = projet;
+    modaleVisible.value = true;
 };
 
 // Ferme la modale en remettant modaleVisible à false
@@ -143,7 +200,7 @@ const objet = ref("");
 const message = ref("");
 
 // Envoie le formulaire via emailjs et vide les champs en cas de succès
-const envoyerMessage = async () => { 
+const envoyerMessage = async () => {
     try {
         const reponse = await emailjs.send(
             import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -153,10 +210,9 @@ const envoyerMessage = async () => {
         );
         console.log("Succés !", reponse);
         alert("Envoyé avec succès !");
-        // vider les champs
-        nom.value= "";
-        objet.value= "";
-        message.value= "";
+        nom.value = "";
+        objet.value = "";
+        message.value = "";
     } catch (erreur) {
         console.log("Ça a échoué :", erreur);
         alert("L'envoi a echoué.");
@@ -164,7 +220,3 @@ const envoyerMessage = async () => {
 };
 
 </script>
-
-<style>
-</style>
-

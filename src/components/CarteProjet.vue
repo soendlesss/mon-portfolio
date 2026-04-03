@@ -1,9 +1,8 @@
 <template>
-    <div>
-
-        <!--Carte représentant un projet, affichée depuis HomeView.vue-->
+    <!-- Carte représentant un projet, affichée depuis HomeView.vue -->
+    <div class="carte">
         <img :src="image" :alt="titre">
-        <h2> {{ titre }} </h2>
+        <h3>{{ titre }}</h3>
         <button @click="seeMore">Voir plus</button>
     </div>
 </template>
@@ -28,3 +27,44 @@ const emit = defineEmits(["selectionner"]);
 const seeMore = () => { emit("selectionner", props); };
 
 </script>
+
+<style scoped>
+
+.carte {
+    flex-basis: calc(33.333% - 14px);
+    background-color: var(--couleur-fond);
+    border-radius: var(--rayon-bordure);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.carte:hover {
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.carte img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.carte h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 10px 10px 5px 10px;
+}
+
+.carte button {
+    background-color: var(--couleur-contraste);
+    color: var(--couleur-texte);
+    border: none;
+    padding: 4px 10px;
+    margin: 0 10px 10px 380px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+</style>
