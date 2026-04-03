@@ -16,6 +16,7 @@
             :description="projet.description"
             :lien="projet.lien"
             :type="projet.type"
+            :image="projet.image"
             @selectionner="ouvrirModale"
             />
 
@@ -27,6 +28,7 @@
             :description="projetSelectionne?.description"
             :lien="projetSelectionne?.lien"
             :type="projetSelectionne?.type"
+            :image="projetSelectionne?.image"
             @fermer="fermerModale"
             />
         </section>
@@ -64,7 +66,8 @@ const projets = ref([
         annee: 2024,
         description: "Conception d'une page CV en HTML5 et CSS3 avec VS Code.",
         lien: "https://github.com/soendlesss/creer-un-cv-en-ligne-devoir-el",
-        type: "github"
+        type: "github",
+        image: "/img/cv-en-ligne.png"
     },
     {
         titre: "Cahier des charges – La Socketterie",
@@ -72,7 +75,8 @@ const projets = ref([
         annee: 2024,
         description: "Rédaction d'un cahier des charges complet pour La Socketterie, e-commerce de chaussettes dépareillées faites main.",
         lien: "/docs/cahier-des-charges-la-socketterie.pdf",
-        type: "pdf"
+        type: "pdf",
+        image: "/img/cahier-des-charges.png"
     },
     {
         titre: "Dynamiser un espace commentaire",
@@ -80,7 +84,8 @@ const projets = ref([
         annee: 2025,
         description: "Intégration de scripts événementiels pour dynamiser un espace commentaire sans rechargement de page.",
         lien: "https://github.com/soendlesss/Dynamiser-avec-JS",
-        type: "github"
+        type: "github",
+        image: "/img/dynamiser-espace-commentaire.png"
     },
     {
         titre: "Arcane Quiz",
@@ -88,7 +93,8 @@ const projets = ref([
         annee: 2025,
         description: "Création d'un quiz interactif autour de la série Arcane.",
         lien: "https://github.com/soendlesss/arcane_quiz",
-        type: "github"
+        type: "github",
+        image: "/img/quiz-arcane.png"
     },
     {
         titre: "Site web TIM Essonne",
@@ -96,7 +102,8 @@ const projets = ref([
         annee: 2024,
         description: "Site du tournoi international U14 en lien avec le circuit ITF Tennis Europe Junior Tour.",
         lien: "https://www.tim91.com/",
-        type: "site"
+        type: "site",
+        image: "/img/site-du-tim-essonne.png"
     },
     {
         titre: "Site web Comité Essonne Tennis",
@@ -104,7 +111,8 @@ const projets = ref([
         annee: 2025,
         description: "Refonte totale du site officiel du Comité Essonne de Tennis, migration de WordPress vers Prismic.",
         lien: "https://essonne.fft.fr/",
-        type: "site"
+        type: "site",
+        image: "/img/site-du-comite.png"
     }
 ]);
 

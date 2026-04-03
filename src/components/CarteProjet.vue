@@ -2,7 +2,7 @@
     <div>
 
         <!--Carte représentant un projet, affichée depuis HomeView.vue-->
-        <img src="image" alt="titre">
+        <img :src="image" :alt="titre">
         <h2> {{ titre }} </h2>
         <button @click="seeMore">Voir plus</button>
     </div>
