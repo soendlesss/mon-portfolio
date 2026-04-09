@@ -151,7 +151,8 @@ const fermer = () => { emit("fermer"); };
     border-radius: var(--rayon-bordure);
     font-weight: 700;
     font-size: 1rem;
-    margin: auto;
+    margin-top: auto;
+    align-self: flex-end;
 }
 
 </style>
