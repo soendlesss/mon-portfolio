@@ -359,6 +359,15 @@ footer p {
         justify-content: center;
     }
 
+    .presentation-texte h1 {
+        font-size: 2.2rem;
+    }
+
+    .presentation-photo img {
+        width: 200px;
+        height: 200px;
+    }
+
     #projets, #apropos, #contact {
         padding: 40px 5%;
     }
@@ -366,9 +375,7 @@ footer p {
     header {
         padding: 0 20px;
     }
-}
 
-@media (max-width: 768px) {
     .contact-illustration {
         display: none;
     }
