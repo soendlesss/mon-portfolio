@@ -5,7 +5,7 @@
             <div class="presentation-texte">
                 <p class="bonjour">Bonjour je suis Ethan !</p>
                 <h1>Développeur <br><span>WEB</span> Junior</h1>
-                <p>Je suis un étudiant en développement web au Centre Européen de Formation.<br>Bienvenu sur mon Portfolio !</p>
+                <p>Je suis un étudiant en développement web au Centre Européen de Formation.<br>Bienvenue sur mon Portfolio !</p>
                 <div class="presentation-boutons">
                     <a href="#projets" class="btn-principal">Projets</a>
                     <a href="/404" class="btn-secondaire">404</a>

@@ -72,4 +72,26 @@
     transform: scale(1.05);
 }
 
+@media (max-width: 768px) {
+    .page-404 {
+        flex-direction: column;
+        justify-content: center;
+        padding: 40px 5%;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .img-404 img {
+        width: 220px;
+    }
+
+    .texte-404 h1 {
+        font-size: 2.2rem;
+    }
+
+    .btn-accueil {
+        margin: 10px auto 0 auto;
+    }
+}
+
 </style>
