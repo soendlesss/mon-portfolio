@@ -249,11 +249,29 @@ header nav a.actif {
     padding: 60px 10%;
 }
 
+.contact-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.contact-illustration {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-illustration img {
+    width: 100%;
+    max-width: 400px;
+    object-fit: contain;
+}
+
 .formulaire-contact {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    max-width: 700px;
+    flex: 1;
 }
 
 .formulaire-contact label {
@@ -347,5 +365,11 @@ footer p {
 
     header {
         padding: 0 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-illustration {
+        display: none;
     }
 }

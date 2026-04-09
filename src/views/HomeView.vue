@@ -83,20 +83,26 @@
             </div>
             <div class="section-ligne"></div>
 
-            <div class="formulaire-contact">
-                <div>
-                    <label for="nom">Nom / Prénom :</label>
-                    <input id="nom" type="text" v-model="nom" placeholder="">
+            <div class="contact-wrapper">
+                <div class="formulaire-contact">
+                    <div>
+                        <label for="nom">Nom / Prénom :</label>
+                        <input id="nom" type="text" v-model="nom" placeholder="">
+                    </div>
+                    <div>
+                        <label for="objet">Objet :</label>
+                        <input id="objet" type="text" v-model="objet" placeholder="">
+                    </div>
+                    <div>
+                        <label for="message">Message :</label>
+                        <textarea id="message" v-model="message" placeholder=""></textarea>
+                    </div>
+                    <button class="btn-envoyer" @click="envoyerMessage">Soumettre</button>
                 </div>
-                <div>
-                    <label for="objet">Objet :</label>
-                    <input id="objet" type="text" v-model="objet" placeholder="">
+
+                <div class="contact-illustration">
+                    <img src="/contact-illustration.svg" alt="Illustration contact">
                 </div>
-                <div>
-                    <label for="message">Message :</label>
-                    <textarea id="message" v-model="message" placeholder=""></textarea>
-                </div>
-                <button class="btn-envoyer" @click="envoyerMessage">Soumettre</button>
             </div>
         </section>
     </div>
