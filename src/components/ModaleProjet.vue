@@ -155,4 +155,27 @@ const fermer = () => { emit("fermer"); };
     align-self: flex-end;
 }
 
+@media (max-width: 768px) {
+    .boite {
+        flex-direction: column;
+        padding: 50px 20px 20px 20px;
+        gap: 20px;
+        overflow-y: auto;
+        max-height: 90vh;
+    }
+
+    .boite-image {
+        width: 100%;
+    }
+
+    .boite-infos {
+        justify-content: flex-start;
+    }
+
+    .btn-lien {
+        align-self: flex-end;
+        margin-top: 0;
+    }
+}
+
 </style>
