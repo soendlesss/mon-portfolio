@@ -24,7 +24,7 @@
 <script setup>
 
 // Date de la mise à jour à changer manuellement à chaque modification du site
-const dateMAJ = "03/04/2026";
+const dateMAJ = "09/04/2026";
 
 </script>
 

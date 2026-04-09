@@ -373,10 +373,34 @@ footer p {
     }
 
     header {
-        padding: 0 20px;
+        padding: 0 15px;
+    }
+
+    .header-logo {
+        font-size: 1rem;
+    }
+
+    header nav {
+        gap: 12px;
+    }
+
+    header nav a {
+        font-size: 0.85rem;
     }
 
     .contact-illustration {
         display: none;
+    }
+}
+
+/* très petits écrans */
+
+@media (max-width: 390px) {
+    header nav a {
+        font-size: 0.75rem;
+    }
+
+    header nav {
+        gap: 8px;
     }
 }
