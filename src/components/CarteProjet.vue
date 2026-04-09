@@ -65,7 +65,7 @@ const seeMore = () => { emit("selectionner", props); };
     font-family: inherit;
     border: none;
     padding: 4px 10px;
-    margin: 0 10px 10px auto;
+    margin: auto 10px 10px auto;
     border-radius: 4px;
     font-size: 0.8rem;
     font-weight: 400;
@@ -81,7 +81,8 @@ const seeMore = () => { emit("selectionner", props); };
     .carte {
         flex-basis: 100%;
         flex-direction: row;
-        height: 90px;
+        min-height: 90px;
+        align-items: stretch;
     }
 
     .carte img {
@@ -96,8 +97,9 @@ const seeMore = () => { emit("selectionner", props); };
     }
 
     .carte button {
-        margin: auto 8px auto auto;
+        margin: auto 8px 8px auto;
         white-space: nowrap;
+        align-self: flex-end;
     }
 }
 
