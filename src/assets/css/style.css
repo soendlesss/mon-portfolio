@@ -326,3 +326,26 @@ footer p {
     font-size: 0.85rem;
     color: var(--couleur-secondaire);
 }
+
+/* optimisation mobile - responsive */
+
+@media (max-width: 768px) {
+    #presentation {
+        flex-direction: column;
+        padding: 40px 5%;
+        min-height: auto;
+        text-align: center;
+    }
+
+    .presentation-boutons {
+        justify-content: center;
+    }
+
+    #projets, #apropos, #contact {
+        padding: 40px 5%;
+    }
+
+    header {
+        padding: 0 20px;
+    }
+}

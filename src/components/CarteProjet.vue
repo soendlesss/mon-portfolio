@@ -76,4 +76,29 @@ const seeMore = () => { emit("selectionner", props); };
     transform: scale(1.05);
 }
 
+/* optimisation mobile - responsive */
+@media (max-width: 768px) {
+    .carte {
+        flex-basis: 100%;
+        flex-direction: row;
+        height: 90px;
+    }
+
+    .carte img {
+        width: 90px;
+        height: 90px;
+        flex-shrink: 0;
+    }
+
+    .carte h3 {
+        font-size: 0.85rem;
+        padding: 8px 8px 4px 8px;
+    }
+
+    .carte button {
+        margin: auto 8px auto auto;
+        white-space: nowrap;
+    }
+}
+
 </style>
