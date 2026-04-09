@@ -92,8 +92,9 @@ const seeMore = () => { emit("selectionner", props); };
     }
 
     .carte h3 {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         padding: 8px 8px 4px 8px;
+        text-transform: none;
     }
 
     .carte button {
