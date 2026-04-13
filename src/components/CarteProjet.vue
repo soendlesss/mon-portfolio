@@ -3,7 +3,7 @@
     <div class="carte">
         <img :src="image" :alt="titre">
         <h3>{{ titre }}</h3>
-        <button @click="seeMore">Voir plus</button>
+        <button @click="voirPlus">Voir plus</button>
     </div>
 </template>
 
@@ -24,7 +24,7 @@ const props = defineProps({
 const emit = defineEmits(["selectionner"]);
 
 // Émet l'événement "selectionner" avec toutes les données du projet en cours
-const seeMore = () => { emit("selectionner", props); };
+const voirPlus = () => { emit("selectionner", props); };
 
 </script>
 
