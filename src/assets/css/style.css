@@ -1,15 +1,10 @@
-/* =============================================
-   RESET & BASE
-   ============================================= */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* =============================================
-   VARIABLES CSS
-   ============================================= */
+/* VARIABLES CSS */
 :root {
     --couleur-fond: #252525;
     --couleur-texte: #ffffff;
@@ -19,9 +14,6 @@
     --rayon-bordure: 10px;
 }
 
-/* =============================================
-   BODY
-   ============================================= */
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: var(--couleur-texte);
@@ -29,9 +21,6 @@ body {
     background-color: var(--couleur-fond);
 }
 
-/* =============================================
-   HEADER
-   ============================================= */
 header {
     display: flex;
     align-items: center;
@@ -83,9 +72,6 @@ header nav a.actif {
     font-size: 1.4rem;
 }
 
-/* =============================================
-   SECTION PRESENTATION (HERO)
-   ============================================= */
 #presentation {
     display: flex;
     align-items: center;
@@ -171,18 +157,12 @@ header nav a.actif {
     box-sizing: content-box;
 }
 
-/* =============================================
-   SEPARATEUR ORANGE
-   ============================================= */
 .separateur {
     height: 8px;
     background-color: var(--couleur-contraste);
     width: 100%;
 }
 
-/* =============================================
-   SECTION PROJETS
-   ============================================= */
 #projets {
     padding: 60px 10%;
 }
@@ -218,9 +198,6 @@ header nav a.actif {
     padding: 30px;
 }
 
-/* =============================================
-   SECTION A PROPOS
-   ============================================= */
 #apropos {
     padding: 60px 10%;
 }
@@ -242,9 +219,6 @@ header nav a.actif {
     color: var(--couleur-texte);
 }
 
-/* =============================================
-   SECTION CONTACT
-   ============================================= */
 #contact {
     padding: 60px 10%;
 }
@@ -313,9 +287,6 @@ header nav a.actif {
     transform: scale(1.05);
 }
 
-/* =============================================
-   FOOTER
-   ============================================= */
 footer {
     display: flex;
     align-items: center;
