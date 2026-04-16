@@ -139,26 +139,14 @@ const envoyerMessage = async () => {
                 <CarteProjet
                     v-for="projet in projets"
                     :key="projet.titre"
-                    :titre="projet.titre"
-                    :technologie="projet.technologie"
-                    :annee="projet.annee"
-                    :description="projet.description"
-                    :lien="projet.lien"
-                    :type="projet.type"
-                    :image="projet.image"
+                    :project="projet"
                     @selectionner="ouvrirModale"
                 />
             </div>
 
             <ModaleProjet
                 :visible="modaleVisible"
-                :titre="projetSelectionne?.titre"
-                :technologie="projetSelectionne?.technologie"
-                :annee="projetSelectionne?.annee"
-                :description="projetSelectionne?.description"
-                :lien="projetSelectionne?.lien"
-                :type="projetSelectionne?.type"
-                :image="projetSelectionne?.image"
+                :project="projetSelectionne"
                 @fermer="fermerModale"
             />
         </section>

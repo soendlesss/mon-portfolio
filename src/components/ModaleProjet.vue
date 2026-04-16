@@ -1,14 +1,8 @@
 <script setup>
 
 defineProps({
-    titre: String,
-    technologie: String,
-    annee: Number,
-    description: String,
-    lien: String,
-    type: String,
+    project: Object,
     visible: Boolean,
-    image: String,
 });
 
 const emit = defineEmits(["fermer"]);
@@ -18,27 +12,25 @@ const fermer = () => { emit("fermer"); };
 </script>
 
 <template>
-    <!-- Clic sur le fond sombre = fermer la modale -->
     <div v-if="visible" class="overlay" @click="fermer">
-        <!-- Clic sur la boîte = ne rien faire (stop propagation) -->
         <div class="boite" @click.stop>
 
             <button class="btn-fermer" @click="fermer">✕</button>
 
             <div class="boite-image">
-                <img :src="image" :alt="titre">
+                <img :src="project.image" :alt="project.titre">
             </div>
 
             <div class="boite-infos">
-                <h2>{{ titre }}</h2>
+                <h2>{{ project.titre }}</h2>
 
-                <p><span class="label">Technologie</span> : {{ technologie }}</p>
-                <p><span class="label">Année</span> : {{ annee }}</p>
-                <p><span class="label">Description</span> : {{ description }}</p>
+                <p><span class="label">Technologie</span> : {{ project.technologie }}</p>
+                <p><span class="label">Année</span> : {{ project.annee }}</p>
+                <p><span class="label">Description</span> : {{ project.description }}</p>
 
-                <a :href="lien" target="_blank" v-if="type === 'github'" class="btn-lien">GitHub</a>
-                <a :href="lien" target="_blank" v-if="type === 'site'" class="btn-lien">Site</a>
-                <a :href="lien" target="_blank" v-if="type === 'pdf'" class="btn-lien">PDF</a>
+                <a :href="project.lien" target="_blank" v-if="project.type === 'github'" class="btn-lien">GitHub</a>
+                <a :href="project.lien" target="_blank" v-if="project.type === 'site'" class="btn-lien">Site</a>
+                <a :href="project.lien" target="_blank" v-if="project.type === 'pdf'" class="btn-lien">PDF</a>
             </div>
 
         </div>

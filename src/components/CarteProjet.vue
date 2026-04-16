@@ -1,29 +1,23 @@
 <script setup>
 
 const props = defineProps({
-    titre: String,
-    technologie: String,
-    annee: Number,
-    description: String,
-    lien: String,
-    type: String,
-    image: String,
+    project: Object,
 });
 
 const emit = defineEmits(["selectionner"]);
 
-const voirPlus = () => { emit("selectionner", props); };
+const voirPlus = () => { emit("selectionner", props.project); };
 
 </script>
 
 <template>
 
     <div class="carte">
-        <img :src="image" :alt="titre">
-        <h3>{{ titre }}</h3>
+        <img :src="project.image" :alt="project.titre">
+        <h3>{{ project.titre }}</h3>
         <button @click="voirPlus">Voir plus</button>
     </div>
-    
+
 </template>
 
 <style scoped>
