@@ -1,6 +1,6 @@
 <script setup>
 
-const dateMAJ = "13/04/2026";
+const dateMAJ = "16/04/2026";
 
 </script>
 
