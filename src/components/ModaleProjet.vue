@@ -1,38 +1,5 @@
-<template>
-    <!-- Clic sur le fond sombre = fermer la modale -->
-    <div v-if="visible" class="overlay" @click="fermer">
-        <!-- Clic sur la boîte = ne rien faire (stop propagation) -->
-        <div class="boite" @click.stop>
-
-            <!-- Bouton fermeture -->
-            <button class="btn-fermer" @click="fermer">✕</button>
-
-            <!-- Colonne gauche : image du projet -->
-            <div class="boite-image">
-                <img :src="image" :alt="titre">
-            </div>
-
-            <!-- Colonne droite : infos du projet -->
-            <div class="boite-infos">
-                <h2>{{ titre }}</h2>
-
-                <p><span class="label">Technologie</span> : {{ technologie }}</p>
-                <p><span class="label">Année</span> : {{ annee }}</p>
-                <p><span class="label">Description</span> : {{ description }}</p>
-
-                <!-- Lien selon le type de projet -->
-                <a :href="lien" target="_blank" v-if="type === 'github'" class="btn-lien">GitHub</a>
-                <a :href="lien" target="_blank" v-if="type === 'site'" class="btn-lien">Site</a>
-                <a :href="lien" target="_blank" v-if="type === 'pdf'" class="btn-lien">PDF</a>
-            </div>
-
-        </div>
-    </div>
-</template>
-
 <script setup>
 
-// Déclare les props reçues depuis le composant parent
 defineProps({
     titre: String,
     technologie: String,
@@ -44,17 +11,42 @@ defineProps({
     image: String,
 });
 
-// Déclare l'événement "fermer" émis vers HomeView.vue
 const emit = defineEmits(["fermer"]);
 
-// Fonction qui émet l'événement "fermer" vers le composant parent
 const fermer = () => { emit("fermer"); };
 
 </script>
 
+<template>
+    <!-- Clic sur le fond sombre = fermer la modale -->
+    <div v-if="visible" class="overlay" @click="fermer">
+        <!-- Clic sur la boîte = ne rien faire (stop propagation) -->
+        <div class="boite" @click.stop>
+
+            <button class="btn-fermer" @click="fermer">✕</button>
+
+            <div class="boite-image">
+                <img :src="image" :alt="titre">
+            </div>
+
+            <div class="boite-infos">
+                <h2>{{ titre }}</h2>
+
+                <p><span class="label">Technologie</span> : {{ technologie }}</p>
+                <p><span class="label">Année</span> : {{ annee }}</p>
+                <p><span class="label">Description</span> : {{ description }}</p>
+
+                <a :href="lien" target="_blank" v-if="type === 'github'" class="btn-lien">GitHub</a>
+                <a :href="lien" target="_blank" v-if="type === 'site'" class="btn-lien">Site</a>
+                <a :href="lien" target="_blank" v-if="type === 'pdf'" class="btn-lien">PDF</a>
+            </div>
+
+        </div>
+    </div>
+</template>
+
 <style scoped>
 
-/* Fond sombre qui couvre toute la page, fixe même au scroll */
 .overlay {
     position: fixed;
     top: 0;
@@ -67,8 +59,6 @@ const fermer = () => { emit("fermer"); };
     justify-content: center;
     z-index: 200;
 }
-
-/* Boîte centrale de la modale */
 .boite {
     background-color: var(--couleur-fond);
     border-radius: var(--rayon-bordure);
@@ -81,7 +71,6 @@ const fermer = () => { emit("fermer"); };
     position: relative;
 }
 
-/* Bouton de fermeture en haut à droite */
 .btn-fermer {
     position: absolute;
     top: 15px;
@@ -99,7 +88,6 @@ const fermer = () => { emit("fermer"); };
     justify-content: center;
 }
 
-/* Image à gauche */
 .boite-image {
     flex-shrink: 0;
     width: 380px;
@@ -112,7 +100,6 @@ const fermer = () => { emit("fermer"); };
     border-radius: var(--rayon-bordure);
 }
 
-/* Infos à droite */
 .boite-infos {
     display: flex;
     flex-direction: column;
@@ -140,7 +127,6 @@ const fermer = () => { emit("fermer"); };
     font-weight: 600;
 }
 
-/* Bouton lien (GitHub / Site / PDF) */
 .btn-lien {
     display: inline-block;
     align-self: flex-end;

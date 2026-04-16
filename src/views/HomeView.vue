@@ -1,120 +1,8 @@
-<template>
-    <div>
-        <!-- Section héro : présentation -->
-        <section id="presentation">
-            <div class="presentation-texte">
-                <p class="bonjour">Bonjour je suis Ethan !</p>
-                <h1>Développeur <br><span>WEB</span> Junior</h1>
-                <p>Je suis un étudiant en développement web au Centre Européen de Formation.<br>Bienvenue sur mon Portfolio !</p>
-                <div class="presentation-boutons">
-                    <a href="#projets" class="btn-principal">Projets</a>
-                    <a href="/404" class="btn-secondaire">404</a>
-                </div>
-            </div>
-            <div class="presentation-photo">
-                <img src="@/assets/img/sean.jpg" alt="Photo Ethan LANGLOIS">
-            </div>
-        </section>
-
-        <!-- Séparateur orange -->
-        <div class="separateur"></div>
-
-        <!-- Section projets -->
-        <section id="projets">
-            <div class="section-titre">
-                <h2>Pr<span>o</span>jets</h2>
-            </div>
-            <div class="section-ligne"></div>
-
-            <div class="grille-projets">
-                <CarteProjet
-                    v-for="projet in projets"
-                    :key="projet.titre"
-                    :titre="projet.titre"
-                    :technologie="projet.technologie"
-                    :annee="projet.annee"
-                    :description="projet.description"
-                    :lien="projet.lien"
-                    :type="projet.type"
-                    :image="projet.image"
-                    @selectionner="ouvrirModale"
-                />
-            </div>
-
-            <ModaleProjet
-                :visible="modaleVisible"
-                :titre="projetSelectionne?.titre"
-                :technologie="projetSelectionne?.technologie"
-                :annee="projetSelectionne?.annee"
-                :description="projetSelectionne?.description"
-                :lien="projetSelectionne?.lien"
-                :type="projetSelectionne?.type"
-                :image="projetSelectionne?.image"
-                @fermer="fermerModale"
-            />
-        </section>
-
-        <!-- Séparateur orange -->
-        <div class="separateur"></div>
-
-        <!-- Section à propos -->
-        <section id="apropos">
-            <div class="section-titre">
-                <h2>À Pr<span>o</span>pos</h2>
-            </div>
-            <div class="section-ligne"></div>
-
-            <p>Je suis un étudiant en développement web au Centre Européen de Formation. J'ai d'abord effectué une mise à niveau en Arts Appliqués, pour ensuite faire une année de graphisme.</p>
-            <p>J'ai enchainé sur un diplôme en web design intitulé "Graphiste multimédias".</p>
-            <p>Ayant touché du doigt le développement web lors de ce diplôme j'ai voulu approfondir cette curiosité grandissante en passant un diplôme de développeur web.</p>
-            <p>Mon objectif à l'obtention de ce diplôme est de trouver un poste de développeur web junior en Île-de-France.</p>
-            <br>
-            <p><a href="#">Liste de compétences :</a></p>
-            <p class="competences">HTML • CSS • JavaScript • Vue.JS • GitHub</p>
-        </section>
-
-        <!-- Séparateur orange -->
-        <div class="separateur"></div>
-
-        <!-- Section contact -->
-        <section id="contact">
-            <div class="section-titre">
-                <h2>C<span>o</span>ntact</h2>
-            </div>
-            <div class="section-ligne"></div>
-
-            <div class="contact-wrapper">
-                <div class="formulaire-contact">
-                    <div>
-                        <label for="nom">Nom / Prénom :</label>
-                        <input id="nom" type="text" v-model="nom" placeholder="">
-                    </div>
-                    <div>
-                        <label for="objet">Objet :</label>
-                        <input id="objet" type="text" v-model="objet" placeholder="">
-                    </div>
-                    <div>
-                        <label for="message">Message :</label>
-                        <textarea id="message" v-model="message" placeholder=""></textarea>
-                    </div>
-                    <button class="btn-envoyer" @click="envoyerMessage">Soumettre</button>
-                </div>
-
-                <div class="contact-illustration">
-                    <img src="/contact-illustration.svg" alt="Illustration contact">
-                </div>
-            </div>
-        </section>
-    </div>
-</template>
-
 <script setup>
 
-// Composants enfants
 import CarteProjet from '@/components/CarteProjet.vue';
 import ModaleProjet from '@/components/ModaleProjet.vue';
 
-// Fonction réactive de Vue pour mettre à jour l'affichage automatiquement
 import { ref } from 'vue';
 
 // Librairie pour envoyer des emails sans serveur backend
@@ -182,25 +70,20 @@ const projets = ref([
 
 // CREATIONS - MODALE PROJET
 
-// Projet actuellement sélectionné, null si aucun
 const projetSelectionne = ref(null);
 
-// Contrôle l'affichage de la modale (true = visible, false = cachée)
 const modaleVisible = ref(false);
 
-// Ouvre la modale et charge les données du projet cliqué
 const ouvrirModale = (projet) => {
     projetSelectionne.value = projet;
     modaleVisible.value = true;
 };
 
-// Ferme la modale en remettant modaleVisible à false
 const fermerModale = () => { modaleVisible.value = false; };
 
 
 // CONTACT - FORMULAIRE
 
-// Champs du formulaire de contact
 const nom = ref("");
 const objet = ref("");
 const message = ref("");
@@ -226,3 +109,106 @@ const envoyerMessage = async () => {
 };
 
 </script>
+
+<template>
+    <div>
+        <section id="presentation">
+            <div class="presentation-texte">
+                <p class="bonjour">Bonjour je suis Ethan !</p>
+                <h1>Développeur <br><span>WEB</span> Junior</h1>
+                <p>Je suis un étudiant en développement web au Centre Européen de Formation.<br>Bienvenue sur mon Portfolio !</p>
+                <div class="presentation-boutons">
+                    <a href="#projets" class="btn-principal">Projets</a>
+                    <a href="/404" class="btn-secondaire">404</a>
+                </div>
+            </div>
+            <div class="presentation-photo">
+                <img src="@/assets/img/sean.jpg" alt="Photo Ethan LANGLOIS">
+            </div>
+        </section>
+
+        <div class="separateur"></div>
+
+        <section id="projets">
+            <div class="section-titre">
+                <h2>Pr<span>o</span>jets</h2>
+            </div>
+            <div class="section-ligne"></div>
+
+            <div class="grille-projets">
+                <CarteProjet
+                    v-for="projet in projets"
+                    :key="projet.titre"
+                    :titre="projet.titre"
+                    :technologie="projet.technologie"
+                    :annee="projet.annee"
+                    :description="projet.description"
+                    :lien="projet.lien"
+                    :type="projet.type"
+                    :image="projet.image"
+                    @selectionner="ouvrirModale"
+                />
+            </div>
+
+            <ModaleProjet
+                :visible="modaleVisible"
+                :titre="projetSelectionne?.titre"
+                :technologie="projetSelectionne?.technologie"
+                :annee="projetSelectionne?.annee"
+                :description="projetSelectionne?.description"
+                :lien="projetSelectionne?.lien"
+                :type="projetSelectionne?.type"
+                :image="projetSelectionne?.image"
+                @fermer="fermerModale"
+            />
+        </section>
+
+        <div class="separateur"></div>
+
+        <section id="apropos">
+            <div class="section-titre">
+                <h2>À Pr<span>o</span>pos</h2>
+            </div>
+            <div class="section-ligne"></div>
+
+            <p>Je suis un étudiant en développement web au Centre Européen de Formation. J'ai d'abord effectué une mise à niveau en Arts Appliqués, pour ensuite faire une année de graphisme.</p>
+            <p>J'ai enchainé sur un diplôme en web design intitulé "Graphiste multimédias".</p>
+            <p>Ayant touché du doigt le développement web lors de ce diplôme j'ai voulu approfondir cette curiosité grandissante en passant un diplôme de développeur web.</p>
+            <p>Mon objectif à l'obtention de ce diplôme est de trouver un poste de développeur web junior en Île-de-France.</p>
+            <br>
+            <p><a href="#">Liste de compétences :</a></p>
+            <p class="competences">HTML • CSS • JavaScript • Vue.JS • GitHub</p>
+        </section>
+
+        <div class="separateur"></div>
+
+        <section id="contact">
+            <div class="section-titre">
+                <h2>C<span>o</span>ntact</h2>
+            </div>
+            <div class="section-ligne"></div>
+
+            <div class="contact-wrapper">
+                <div class="formulaire-contact">
+                    <div>
+                        <label for="nom">Nom / Prénom :</label>
+                        <input id="nom" type="text" v-model="nom" placeholder="">
+                    </div>
+                    <div>
+                        <label for="objet">Objet :</label>
+                        <input id="objet" type="text" v-model="objet" placeholder="">
+                    </div>
+                    <div>
+                        <label for="message">Message :</label>
+                        <textarea id="message" v-model="message" placeholder=""></textarea>
+                    </div>
+                    <button class="btn-envoyer" @click="envoyerMessage">Soumettre</button>
+                </div>
+
+                <div class="contact-illustration">
+                    <img src="/contact-illustration.svg" alt="Illustration contact">
+                </div>
+            </div>
+        </section>
+    </div>
+</template>

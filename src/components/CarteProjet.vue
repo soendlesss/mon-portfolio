@@ -1,15 +1,5 @@
-<template>
-    <!-- Carte représentant un projet, affichée depuis HomeView.vue -->
-    <div class="carte">
-        <img :src="image" :alt="titre">
-        <h3>{{ titre }}</h3>
-        <button @click="voirPlus">Voir plus</button>
-    </div>
-</template>
-
 <script setup>
 
-// Données du projet transmises par HomeView.vue
 const props = defineProps({
     titre: String,
     technologie: String,
@@ -20,13 +10,21 @@ const props = defineProps({
     image: String,
 });
 
-// Déclare l'événement "selectionner" émis vers HomeView.vue au clic sur "Voir plus"
 const emit = defineEmits(["selectionner"]);
 
-// Émet l'événement "selectionner" avec toutes les données du projet en cours
 const voirPlus = () => { emit("selectionner", props); };
 
 </script>
+
+<template>
+
+    <div class="carte">
+        <img :src="image" :alt="titre">
+        <h3>{{ titre }}</h3>
+        <button @click="voirPlus">Voir plus</button>
+    </div>
+    
+</template>
 
 <style scoped>
 

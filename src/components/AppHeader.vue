@@ -1,3 +1,10 @@
+<script setup>
+
+import { ref } from 'vue';
+const sectionActive = ref('presentation');
+
+</script>
+
 <template>
     <header>
         <!-- Logo cliquable qui ramène en haut de la page d'accueil -->
@@ -10,7 +17,6 @@
             <a href="#apropos" :class="{ actif: sectionActive === 'apropos' }" @click="sectionActive = 'apropos'">À propos</a>
         </nav>
 
-        <!-- Icône contact -->
         <div class="header-contact">
             <a href="#contact" @click="sectionActive = 'contact'" aria-label="Contact">
                 <!-- Icône message/bulle -->
@@ -21,14 +27,3 @@
         </div>
     </header>
 </template>
-
-<script setup>
-
-import { ref } from 'vue';
-const sectionActive = ref('presentation');
-
-</script>
-
-<style scoped>
-/* Les styles du header sont dans style.css global */
-</style>
