@@ -1,38 +1,67 @@
-# mon-portfolio
+# Mon Portfolio
 
-This template should help get you started developing with Vue 3 in Vite.
+Portfolio personnel développé dans le cadre de ma formation en développement web au CEF. Construit avec Vue 3 (Composition API), il présente mes projets via des cartes interactives avec modale, une section à propos qui me présente, un formulaire de contact fonctionnel (EmailJS) et une navigation gérée par Vue Router.
 
-## Recommended IDE Setup
+## Technologies utilisées
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- [Vue3](https://vuejs.org/) (Composition API)
+- HTML5
+- CSS3
+- JavaScript
+- [Vite](https://vitejs.dev/)
+- [Vue Router](https://router.vuejs.org/)
+- [EmailJS](https://www.emailjs.com/)
+- [Git](https://git-scm.com/) et [Github](https://github.com/)
 
-## Recommended Browser Setup
+## Prérequis
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+Avant de commencer, assure-toi d'avoir installé :
 
-## Customize configuration
+- [Node.js](https://nodejs.org/) v22.12.0 ou supérieur
+- [npm](https://www.npmjs.com/) (inclus avec Node.js)
+- [Git](https://git-scm.com/)
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Installation
 
-## Project Setup
+### Clone le repository
+```sh
+git clone https://github.com/soendlesss/mon-portfolio.git
+```
 
+### Accède au dossier du projet
+```sh
+cd mon-portfolio
+```
+
+### Installe les dépendances 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+## Variables d'environnement
 
+Le formulaire de contact utilise EmailJS. Crée un fichier .env à la racine du projet et renseigne les variables suivantes :
+
+```sh
+VITE_EMAILJS_SERVICE_ID=ton_service_id
+VITE_EMAILJS_TEMPLATE_ID=ton_template_id
+VITE_EMAILJS_PUBLIC_KEY=ta_public_key
+VITE_CONTACT_EMAIL=ton_email
+```
+Ces informations sont disponibles dans le tableau de bord EmailJS.
+
+## Lancement
+
+### Lance le serveur de développement
 ```sh
 npm run dev
 ```
+L'application sera accessible sur http://localhost:5173.
 
-### Compile and Minify for Production
+## Build
 
+### Pour générer une version de production : 
 ```sh
 npm run build
 ```
+Les fichiers générés se trouveront dans le dossier dist/.
